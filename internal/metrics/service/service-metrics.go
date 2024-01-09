@@ -25,10 +25,6 @@ func NewServiceMetrics(ns string) (qs *ServiceMetrics) {
 }
 
 func (qs *ServiceMetrics) Info(ctx context.Context, id string) (err error) {
-	id1 := ""
-	for _, v := range id {
-		id1 += string(v)
-	}
 	qs.httpNbReq.WithLabelValues(id).Add(1)
 	return nil
 }
